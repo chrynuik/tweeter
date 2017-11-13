@@ -1,0 +1,34 @@
+.new-tweet {
+  border: 1px solid #949494;
+  background: #e3e3e3;
+  padding: 0.85rem 1rem 1rem;
+  border-radius: 4px;
+  margin: 0 2em;
+
+}
+.new-tweet h2 {
+  margin: 0 0 10px;
+  color: #234750;
+  border-bottom: 1px solid #000;
+}
+.new-tweet form {
+  overflow: hidden;
+}
+.new-tweet textarea{
+  padding: 0.5em;
+  display: block;
+  width: 100%;
+  margin: 0 0 10px;
+}
+.new-tweet [type="submit"] {
+  padding: 0.5em 0.5em 0.35em;
+  display: inline-block;
+}
+.new-tweet [type="submit"]:hover,
+.new-tweet [type="submit"]:focus {
+ /* background-color: #9900ff;*/
+}
+.new-tweet .counter {
+  float: right;
+  padding-top: 0.5em;
+}
