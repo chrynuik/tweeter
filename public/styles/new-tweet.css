@@ -11,8 +11,10 @@
   color: #234750;
   border-bottom: 1px solid #000;
 }
-.new-tweet form {
-  overflow: hidden;
+.new-tweet form:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 .new-tweet textarea{
   padding: 0.5em;
@@ -20,15 +22,27 @@
   width: 100%;
   margin: 0 0 10px;
 }
+.new-tweet textarea:focus {
+  border-color: #00a087;
+  outline: none;
+}
 .new-tweet [type="submit"] {
   padding: 0.5em 0.5em 0.35em;
   display: inline-block;
+  border: 1px solid #747474;
+  background: #e3e3e3;
+  transition: 0.15s ease-in-out;
 }
 .new-tweet [type="submit"]:hover,
 .new-tweet [type="submit"]:focus {
- /* background-color: #9900ff;*/
+  background-color: #00a087;
+  border-color: #00a087;
+  color: #e8fdff;
 }
 .new-tweet .counter {
   float: right;
   padding-top: 0.5em;
+}
+.invalid-count {
+  color: red;
 }
