@@ -49,20 +49,36 @@ $(document).ready(function(){
 
   function handleNewTweet(event){
     event.preventDefault();
-    const $form = $(this);
-    // console.log($form.serialize());
-   // $.ajax ({
-   //  type: 'POST',
-   //  url: '/',
-   //  data: $form.serialize
-   // })
 
-   //.done(renderTweets(data));
-    // .done(() => {
-    //   const type = $form.find('input[name="text"]').val();
-    //   $('#tweets-container').prepend(createTweetElement($form))
-    // })
-    // console.log(createTweetElement(tweetData));
+
+    const $form = $(this);
+    const $textarea = $form.find('textarea');
+
+    $('.warning-message').remove();
+
+    if ($textarea.val() === null || $textarea.val() === "") {
+      //console.log($form.find('.submit'));
+      $textarea.after('<div class="warning-message">Submission is empty</div>');
+    } else if ($textarea.val().length > 140) {
+      $textarea.after('<div class="warning-message">Your message is too long</div>');
+    } else {
+      //console.log($form.serialize());
+      $.ajax ({
+      type: 'POST',
+      url: '/',
+      data: $form.serialize
+     })
+
+     //.done(renderTweets(data));
+      // .done(() => {
+      //   const type = $form.find('input[name="text"]').val();
+      //   $('#tweets-container').prepend(createTweetElement($form))
+      // })
+      // console.log(createTweetElement(tweetData));
+    }
+
+
+
   }
 
   const $form = $('#new-tweet');
