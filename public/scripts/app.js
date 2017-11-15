@@ -73,9 +73,10 @@ $(document).ready(function(){
 
      // .done(renderTweets(tweets));
       .done(() => {
-        const $text = $form.find('input[name="text"]').val();
+        // const $text = $form.find('input[name="text"]').val();
         //console.log($text);
         // $('#tweets-container').prepend(createTweetElement($text))
+        $('.tweets-container').empty();
         loadTweets();
       })
       // console.log(createTweetElement(tweetData));
