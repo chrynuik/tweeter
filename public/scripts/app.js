@@ -62,18 +62,22 @@ $(document).ready(function(){
     } else if ($textarea.val().length > 140) {
       $textarea.after('<div class="warning-message">Your message is too long</div>');
     } else {
-      //console.log($form.serialize());
+
+      console.log($form.serialize());
+
       $.ajax ({
       type: 'POST',
-      url: '/',
-      data: $form.serialize
+      url: '/tweets',
+      data: $form.serialize()
      })
 
-     //.done(renderTweets(data));
-      // .done(() => {
-      //   const type = $form.find('input[name="text"]').val();
-      //   $('#tweets-container').prepend(createTweetElement($form))
-      // })
+     // .done(renderTweets(tweets));
+      .done(() => {
+        const $text = $form.find('input[name="text"]').val();
+        //console.log($text);
+        // $('#tweets-container').prepend(createTweetElement($text))
+        loadTweets();
+      })
       // console.log(createTweetElement(tweetData));
     }
 
