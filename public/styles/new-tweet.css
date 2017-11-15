@@ -49,7 +49,7 @@
 
 
 /*------tweet article styling--------*/
-#tweets {
+#tweets-container {
   margin: 0 2em;
 }
 .tweet {
@@ -124,14 +124,3 @@
 .tweet .icons a:focus i {
   color: #949494;
 }
-/*
-.tweet footer svg {
-  max-width: 100px;
-  height: auto;
-  fill: #949494;
-}
-.tweet footer a:hover svg,
-.tweet footer a:focus svg {
-  fill: #00a087;
-}
-*/
