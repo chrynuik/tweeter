@@ -42,8 +42,9 @@ $(document).ready(function(){
   }
 
   function renderTweets(data) {
+    $('.tweets-container').empty();
     data.forEach(function(tweetData) {
-      $('#tweets-container').append(createTweetElement(tweetData));
+      $('#tweets-container').prepend(createTweetElement(tweetData));
     })
   };
 
@@ -72,11 +73,12 @@ $(document).ready(function(){
      })
 
      // .done(renderTweets(tweets));
-      .done(() => {
+      .then(() => {
         // const $text = $form.find('input[name="text"]').val();
         //console.log($text);
         // $('#tweets-container').prepend(createTweetElement($text))
-        $('.tweets-container').empty();
+
+
         loadTweets();
       })
       // console.log(createTweetElement(tweetData));
@@ -101,5 +103,10 @@ $(document).ready(function(){
   }
 
   loadTweets();
+
+    $('.compose').on('click', function(){
+        $('.new-tweet').slideToggle('400').find('textarea').focus();
+    });
+
 });
 
