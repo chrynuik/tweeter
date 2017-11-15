@@ -44,10 +44,16 @@
   padding-top: 0.5em;
 }
 .invalid-count {
-  color: red;
+  color: #cc0000;
 }
 
-
+.warning-message {
+  background: #cc0000;
+  color: #fff;
+  padding: 0.5em;
+  font-size: 1.08em;
+  margin: 0.5rem 0;
+}
 /*------tweet article styling--------*/
 #tweets-container {
   margin: 0 2em;
@@ -76,7 +82,7 @@
 .tweet header img {
   display: inline-block;
   margin-right: 1rem;
-  max-width: 80px;
+  max-width: 50px;
   height: auto;
 }
 .tweet h1 {
