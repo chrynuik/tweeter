@@ -92,5 +92,28 @@ $(document).ready(function(){
     })
   };
 
+  function handleNewTweet(event){
+    event.preventDefault();
+    const $form = $(this);
+    console.log($form.serialize());
+   // $.ajax ({
+   //  type: 'POST',
+   //  url: '/',
+   //  data: $form.serialize
+   // })
+
+   //.done(renderTweets(data));
+    // .done(() => {
+    //   const type = $form.find('input[name="text"]').val();
+    //   $('#tweets-container').prepend(createTweetElement($form))
+    // })
+    // console.log(createTweetElement(tweetData));
+  }
+
+  const $form = $('#new-tweet');
+
+  $form.on('submit', handleNewTweet);
+
   renderTweets(data);
 });
+
