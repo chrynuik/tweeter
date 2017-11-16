@@ -4,13 +4,20 @@
   padding: 0.85rem 1rem 1rem;
   border-radius: 4px;
   margin: 0 2em;
+  height: 100%;
 
 }
 .new-tweet h2 {
+ /* margin: 0;*/
   margin: 0 0 10px;
   color: #234750;
   border-bottom: 1px solid #000;
 }
+/*.new-tweet form::before {
+  content: '';
+  height: 10px;
+  display: block;
+}*/
 .new-tweet form:after {
   content: "";
   display: table;
