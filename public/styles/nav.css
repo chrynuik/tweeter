@@ -1,3 +1,7 @@
+/* css variable expirament since this only has to work in chrome as of Nov 2017 */
+:root {
+  --brand-color:  #00a087;
+}
 #nav-bar {
   height: 80px;
   position: fixed;
@@ -8,13 +12,13 @@
   color: #e8fdff;
   padding: 0 2em;
   z-index: 1;
-  /*
-   padding: 0.42em 2em 0;
+  padding: 0.42em 2em 0;
   display: flex;
   align-items: center;
-  */
+  justify-content: space-between;
+
 }
-#nav-bar::after {
+.nav-left::after {
   content: "";
   display: table;
   clear: both;
@@ -34,4 +38,22 @@
   line-height: 1;
   margin-top: 25px;
 
+}
+.compose {
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 0.85rem;
+  color: var(--brand-color); /*expiramenting*/
+  background: #E7FDFF;
+  font-size: 1.25em;
+}
+/*.compose::before {
+  content: 'icon';
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+}*/
+.compose:hover,
+.compose:focus {
+  background: #fff;
 }
