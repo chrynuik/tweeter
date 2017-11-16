@@ -72,7 +72,10 @@ $(document).ready(function(){
         data: $form.serialize()
       })
       .then(() => {
+        $textarea.val('');
+        $form.find('.counter').text(140);
         loadTweets();
+
       });
     }
   }
