@@ -17,7 +17,6 @@ $(document).ready(function(){
 
     var tweetTime = Math.floor((Date.now() - tweetData.created_at) / (1000*60*60*24));
     var tweetText = escape(tweetData.content.text);
-    // console.log(tweetData);
 
     return `<article class="tweet">
           <header>
@@ -38,54 +37,44 @@ $(document).ready(function(){
               <a href="#" class="love"><i class="fa fa-heart" aria-hidden="true"></i></a>
             </div>
           </footer>
-        </article>`
+        </article>`;
   }
 
   function renderTweets(data) {
     $('.tweets-container').empty();
     data.forEach(function(tweetData) {
       $('#tweets-container').prepend(createTweetElement(tweetData));
-    })
-  };
+    });
+  }
+
+  function tweetValidate(textarea) {
+    if (textarea.val() === null || textarea.val() === "") {
+      //console.log($form.find('.submit'));
+      return textarea.after('<div class="warning-message">Submission is empty</div>');
+    } if (textarea.val().length > 140) {
+      return textarea.after('<div class="warning-message">Your message is too long</div>');
+    }
+  }
 
   function handleNewTweet(event){
     event.preventDefault();
-
 
     const $form = $(this);
     const $textarea = $form.find('textarea');
 
     $('.warning-message').remove();
 
-    if ($textarea.val() === null || $textarea.val() === "") {
-      //console.log($form.find('.submit'));
-      $textarea.after('<div class="warning-message">Submission is empty</div>');
-    } else if ($textarea.val().length > 140) {
-      $textarea.after('<div class="warning-message">Your message is too long</div>');
+    if (tweetValidate($textarea)) {
     } else {
-
-      console.log($form.serialize());
-
       $.ajax ({
-      type: 'POST',
-      url: '/tweets',
-      data: $form.serialize()
-     })
-
-     // .done(renderTweets(tweets));
-      .then(() => {
-        // const $text = $form.find('input[name="text"]').val();
-        //console.log($text);
-        // $('#tweets-container').prepend(createTweetElement($text))
-
-
-        loadTweets();
+        type: 'POST',
+        url: '/tweets',
+        data: $form.serialize()
       })
-      // console.log(createTweetElement(tweetData));
+      .then(() => {
+        loadTweets();
+      });
     }
-
-
-
   }
 
   const $form = $('#new-tweet');
@@ -99,14 +88,14 @@ $(document).ready(function(){
       })
       .done ((tweets) => {
         renderTweets(tweets);
-      })
+      });
   }
 
   loadTweets();
 
-    $('.compose').on('click', function(){
-        $('.new-tweet').slideToggle('400').find('textarea').focus();
-    });
+  $('.compose').on('click', function(){
+      $('.new-tweet').slideToggle('400').find('textarea').focus();
+  });
 
 });
 
