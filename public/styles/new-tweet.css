@@ -69,6 +69,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-top: 1rem;
+  overflow: hidden; /*used so that if you put in a 140chars with no spaces it wouldn't show the text that escapes the box*/
 }
 .tweet:hover {
   border-color: #949494;
