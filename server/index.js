@@ -10,6 +10,18 @@ const {MongoClient} = require("mongodb");
 const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 
 app.use(bodyParser.urlencoded({ extended: true }));
+var sassMiddleware = require('node-sass-middleware');
+var path = require('path');
+app.use(sassMiddleware({
+    /* Options */
+    src: "public",
+   // dest: "/styles/css",
+    debug: true,
+    outputStyle: 'compressed',
+
+}));
+
+
 app.use(express.static("public"));
 
 MongoClient.connect(MONGODB_URI, (err, db) => {
