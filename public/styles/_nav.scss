@@ -1,0 +1,54 @@
+/* css variable expirament since this only has to work in chrome as of Nov 2017 */
+:root {
+  --brand-color:  #00a087;
+}
+#nav-bar {
+  height: 80px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  background: #00a087;
+  color: #e8fdff;
+  padding: 0 2em;
+  z-index: 1;
+  padding: 0.42em 2em 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.nav-left::after {
+ @extend %clearfix;
+}
+#nav-bar .logo {
+  width: 80px;
+  height: 80px;
+  float: left;
+  margin-right: 10px;
+  line-height: 1;
+  vertical-align: bottom;
+}
+#nav-bar .header {
+  float: left;
+  font-size: 2em;
+  color: #e8fdff;
+  line-height: 1;
+  margin-top: 25px;
+
+}
+.compose {
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 0.85rem;
+  color: var(--brand-color); /*expiramentation*/
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 1.25em;
+}
+.compose:hover,
+.compose:focus {
+  background: #fff;
+}
+.compose .fa {
+  margin-right: 0.4em;
+}
